@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>All Orders</title>
+</head>
+<body>
+    <nav>
+        <div class="container">
+
+        </div>
+    </nav>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <h1 class="col my-5">Cookie Orders</h1>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>All Orders:</p>
+
+                </div>
+                <div class="col">
+                    <a href="/cookies/new">+ New Order</a>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <table class="table col-10">
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <!-- WE did not use scope="col" to see what happens -->
+                            <th>Cookie Type</th>
+                            <th>Number of Boxes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders%}
+                        <tr>
+                            <td>{{order['name']}}</td>
+                            <td>{{order['cookie_type']}}</td>
+                            <td>{{order['boxes']}}</td>
+                            <td><a href="/cookies/edit-order/{{order['id']}}">Edit</a> | </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
